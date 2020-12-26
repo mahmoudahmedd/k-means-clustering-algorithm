@@ -86,7 +86,7 @@ def updateCenters(_assignments):
     return assignments
 
 # Input
-k = 2
+k = int(input("Enter K: "))
 
 df = parseExcelFile('Course Evaluation .xlsx')
 centers, assignments = generateK(df, k)
@@ -100,10 +100,12 @@ while new != old:
     new = assignPoints(df, newCenters, old)
 
 
+
 for i in range(0, len(new)): 
     print(len(new[i]))
     
-    
+print(new)
+
 res = []
 for i in range(0, len(new)):
     res.append([])
@@ -120,13 +122,14 @@ for i in range(0, len(res)):
 for i in range(0, k):
     out = 2
     for j in range(0, len(res[i])):
+        print(res[i][j])
         res[i][j].pop(0)
         res[i][j].pop(0)
-        
         out = out - 1
         
         if out <= 0:
             break
+    print("")
     
 
 print(res)
